@@ -46,7 +46,8 @@ class ProductScreen extends StatelessWidget {
                 ),
                 BlocBuilder<CartCubit, List<Product>>(
                   builder: (context, cartItems) {
-                    final isInCart = cartItems.contains(product);
+                    final isInCart = cartItems.any((item) => item.id == product.id);
+
                     return OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
